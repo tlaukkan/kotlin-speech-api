@@ -14,7 +14,9 @@ import javax.sound.sampled.TargetDataLine
 class Speech(val languageCode:String, val speechRmsThreshold: Double, val onSpeechToText: (text: String) -> Unit) {
 
     val speech = SpeechClient.create()!!
-    val buffer = ByteArray(1024)
+    var buffer = ByteArray(4096)
+    var lastBuffer = ByteArray(4096)
+    var lastCount = 0
     var shorts = ShortArray(buffer.size / 2)
 
     val recognitionConfig = RecognitionConfig.newBuilder()
@@ -79,6 +81,10 @@ class Speech(val languageCode:String, val speechRmsThreshold: Double, val onSpee
                         sound = true
                         println("Start recognizing!!!")
                         start()
+                        // Send also last round buffer.
+                        requestObserver!!.onNext(StreamingRecognizeRequest.newBuilder()
+                                .setAudioContent(ByteString.copyFrom(lastBuffer, 0, lastCount))
+                                .build())
                     }
                     //println("Sound for ${System.currentTimeMillis() - soundStartedMillis!!} ms.")
                 }
@@ -88,6 +94,13 @@ class Speech(val languageCode:String, val speechRmsThreshold: Double, val onSpee
                         requestObserver!!.onNext(StreamingRecognizeRequest.newBuilder()
                                 .setAudioContent(ByteString.copyFrom(buffer, 0, count))
                                 .build())
+                    } else {
+                        // Save last count.
+                        lastCount = count
+                        // Switch buffers.
+                        val tempBuffer = lastBuffer
+                        lastBuffer = buffer
+                        buffer = tempBuffer
                     }
                 }
             }

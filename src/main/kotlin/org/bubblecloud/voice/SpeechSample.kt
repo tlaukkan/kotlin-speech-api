@@ -22,7 +22,6 @@ object SpeechSample {
 
     @Throws(Exception::class)
     @JvmStatic fun main(args: Array<String>) {
-
         println("Opening speech recognition...")
         val speech = Speech("en-US", 0.0005, { text ->
             println("Recognised speech: $text")
