@@ -9,8 +9,10 @@ Simple interface for voice control using microphone and Google Cloud Speech API.
 3) Execute the following code:
 
         println("Opening speech recognition...")
-        val speech = Speech("en-US", 0.0005, { text ->
+        val speaker = Speaker()
+        val listener = Listener("en-US", 0.0005, { text ->
             println("Recognised speech: $text")
+            speaker.say(text)
             if (text.equals("exit")) {
                 exit = true
             }
@@ -23,7 +25,7 @@ Simple interface for voice control using microphone and Google Cloud Speech API.
         }
 
         println("Closing speech recognition...")
-        speech.close()
+        listener.close()
         println("Closed speech recognition.")
 
         println("Exit.")
