@@ -1,0 +1,6 @@
+credentials.json
+.gradle
+.idea
+build
+gradle
+out
