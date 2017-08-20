@@ -1,6 +1,8 @@
 credentials.json
 .gradle
 .idea
+speech
+log
 build
 gradle
 out

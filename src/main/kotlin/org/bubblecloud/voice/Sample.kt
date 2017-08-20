@@ -16,15 +16,17 @@
 
 package org.bubblecloud.voice
 
-object SpeechSample {
+object Sample {
 
     var exit = false
 
     @Throws(Exception::class)
     @JvmStatic fun main(args: Array<String>) {
         println("Opening speech recognition...")
-        val speech = Speech("en-US", 0.0005, { text ->
+        val speaker = Speaker()
+        val listener = Listener("en-US", 0.0005, { text ->
             println("Recognised speech: $text")
+            speaker.say(text)
             if (text.equals("exit")) {
                 exit = true
             }
@@ -37,7 +39,7 @@ object SpeechSample {
         }
 
         println("Closing speech recognition...")
-        speech.close()
+        listener.close()
         println("Closed speech recognition.")
 
         println("Exit.")

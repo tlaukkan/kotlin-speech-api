@@ -27,3 +27,8 @@ Simple interface for voice control using microphone and Google Cloud Speech API.
         println("Closed speech recognition.")
 
         println("Exit.")
+        
+        
+## Notes
+
+https://github.com/wihoho/java-google-translate-text-to-speech/issues

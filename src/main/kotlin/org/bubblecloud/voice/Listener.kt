@@ -11,7 +11,7 @@ import javax.sound.sampled.AudioSystem
 import javax.sound.sampled.DataLine
 import javax.sound.sampled.TargetDataLine
 
-class Speech(val languageCode:String, val speechRmsThreshold: Double, val onSpeechToText: (text: String) -> Unit) {
+class Listener(val languageCode:String, val speechRmsThreshold: Double, val onSpeechToText: (text: String) -> Unit) {
 
     val speech = SpeechClient.create()!!
     var buffer = ByteArray(4096)
