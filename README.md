@@ -1,6 +1,9 @@
-# Kotlin Voice Control
+[![Release](https://jitpack.io/v/tlaukkan/kotlin-speech-api.svg)]
+(https://jitpack.io/#tlaukkan/kotlin-speech-api)
 
-Simple interface for voice control using microphone and Google Cloud Speech API.
+# Kotlin Speech API
+
+Simple interface for speech using microphone and Google Cloud API.
 
 ## Usage
 
