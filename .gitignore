@@ -1,6 +1,7 @@
 credentials.json
 .gradle
 .idea
+*.iml
 speech
 log
 build
