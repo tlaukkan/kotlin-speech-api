@@ -1,5 +1,4 @@
-[![Release](https://jitpack.io/v/tlaukkan/kotlin-speech-api.svg)]
-(https://jitpack.io/#tlaukkan/kotlin-speech-api)
+[![Release](https://jitpack.io/v/tlaukkan/kotlin-speech-api.svg)](https://jitpack.io/#tlaukkan/kotlin-speech-api)
 
 # Kotlin Speech API
 
