@@ -23,10 +23,12 @@ object Sample {
     @Throws(Exception::class)
     @JvmStatic fun main(args: Array<String>) {
         println("Opening speech recognition...")
+        val analyser = Analyzer()
         val speaker = Speaker()
         val listener = Listener("en-US", 0.0005, { text ->
             println("Recognised speech: $text")
             speaker.say(text)
+            println(analyser.analyse(text))
             if (text.equals("exit")) {
                 exit = true
             }
