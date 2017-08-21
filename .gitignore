@@ -7,3 +7,5 @@ log
 build
 gradle
 out
+gradlew
+gradlew.bat
